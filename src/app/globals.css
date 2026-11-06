@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-field: #12372a;
+  --color-leaf: #2f7d4f;
+  --color-marigold: #f2a900;
+  --color-sage: #edf3ea;
+  --color-ink: #17251d;
+  /* ONE typeface everywhere (header, body, footer) */
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Scale the whole UI on big screens / zoomed-out browsers instead of leaving tiny text in a narrow column */
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 100%; }
+@media (min-width: 1536px) { html { font-size: 112.5%; } }
+@media (min-width: 1920px) { html { font-size: 125%; } }
+@media (min-width: 2560px) { html { font-size: 150%; } }
+@media (min-width: 3400px) { html { font-size: 187.5%; } }
+
+body { font-family: var(--font-sans); color: var(--color-ink); background: #fff; }
+h1, h2, h3 { letter-spacing: -0.02em; }
+.wrap { margin-inline: auto; width: 100%; max-width: 80rem; padding-inline: 1rem; }
+@media (min-width: 640px) { .wrap { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .wrap { padding-inline: 2rem; } }
+
+:focus-visible { outline: 3px solid var(--color-marigold); outline-offset: 3px; border-radius: 4px; }
+.skip { position: absolute; left: -999px; top: 0; z-index: 60; background: var(--color-marigold); color: var(--color-field); padding: .75rem 1rem; font-weight: 700; }
+.skip:focus { left: 0; }
+summary::-webkit-details-marker { display: none; }
+
+/* ---------- page banner (inner pages) ---------- */
+.banner { background: var(--color-sage) url("/images/page-banner.svg") right bottom / auto 100% no-repeat; }
+@media (max-width: 767px) { .banner { background-image: none; } }
+
+/* ---------- hover helpers ---------- */
+.link-u { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; transition: background-size .3s ease, color .2s ease; padding-bottom: 2px; }
+.link-u:hover, .link-u:focus-visible { background-size: 100% 2px; }
+
+/* ---------- motion (only when JS is on and the user has not asked for reduced motion) ---------- */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1) var(--d, 0ms), transform .7s cubic-bezier(.2,.7,.2,1) var(--d, 0ms); }
+  [data-reveal="left"] { transform: translateX(-36px); }
+  [data-reveal="right"] { transform: translateX(36px); }
+  [data-reveal="zoom"] { transform: scale(.95); }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+
+  /* one orchestrated page-load sequence for the hero */
+  .hero-in { opacity: 0; animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: var(--d, 0ms); }
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+  /* company journey path: line draws, dots pop */
+  .journey::after { transition: transform 1.8s cubic-bezier(.4,0,.2,1) .2s; }
+  .journey-dot { transform: scale(0); transition: transform .5s cubic-bezier(.3,1.6,.5,1) calc(.3s + var(--i) * .25s); }
+  [data-reveal]:not(.is-in) .journey::after { transform: scale(0); }
+  [data-reveal].is-in .journey-dot { transform: scale(1); }
+  [data-reveal]:not(.is-in) .journey-dot { transform: scale(0); }
+
+  /* scroll progress bar (progressive enhancement, Chromium/Safari) */
+  @supports (animation-timeline: scroll()) {
+    .progress { animation: grow linear both; animation-timeline: scroll(root); }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  }
+}
+.progress { position: fixed; inset: 0 0 auto 0; height: 3px; background: var(--color-marigold); transform-origin: left; transform: scaleX(0); z-index: 70; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .progress { display: none; } html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* journey layout: vertical on mobile, horizontal on desktop */
+.journey { position: relative; }
+.journey::before, .journey::after { content: ""; position: absolute; background: rgb(18 55 42 / .18); left: .4375rem; top: .5rem; bottom: .5rem; width: 2px; transform-origin: top; }
+.journey::after { background: var(--color-marigold); }
+.journey-dot { position: absolute; left: 0; top: .25rem; width: 1rem; height: 1rem; border-radius: 9999px; background: var(--color-field); box-shadow: 0 0 0 4px var(--color-marigold); }
+@media (min-width: 1024px) {
+  .journey::before, .journey::after { left: .5rem; right: .5rem; top: .4375rem; bottom: auto; width: auto; height: 2px; transform-origin: left; }
+  .journey-dot { top: 0; }
+}

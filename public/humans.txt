@@ -1,0 +1,7 @@
+/* TEAM */
+Company: Taginus Innovations (OPC) Pvt. Ltd.
+Location: Jath, Sangli, Maharashtra, India
+Contact: taginusinnovation@gmail.com
+
+/* SITE */
+Stack: Next.js, TypeScript, Tailwind CSS, three.js
