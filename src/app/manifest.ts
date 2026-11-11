@@ -15,9 +15,9 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en-IN",
     categories: ["business", "productivity", "education"],
     icons: [
-      { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-      { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
-      { src: "/icons/maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+      { src: "/icons/Logo.JPEG", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/icons/Logo.JPEG", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/icons/Logo.JPEG", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }
