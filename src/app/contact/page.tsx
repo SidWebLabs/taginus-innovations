@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import EnquiryForm from "@/components/EnquiryForm";
+import LinkedInLink from "@/components/LinkedInLink";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/data/site";
 import { verticals } from "@/data/verticals";
@@ -43,7 +44,7 @@ export default function Contact() {
           <section data-reveal aria-labelledby="li-h">
             <h2 id="li-h" className="font-display text-xl font-bold text-field">LinkedIn</h2>
             <p className="mt-2 text-ink/80">Company updates, innovation highlights and professional opportunities.</p>
-            <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block break-all font-semibold text-leaf underline underline-offset-4">linkedin.com/company/taginus-innovations</a>
+            <div className="mt-3"><LinkedInLink href={site.linkedin} /></div>
           </section>
         </div>
         <section data-reveal aria-labelledby="form-h">

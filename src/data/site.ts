@@ -3,8 +3,8 @@ export const site = {
   legalName: "Taginus Innovations (OPC) Pvt. Ltd.",
   tagline: "Engineering Ideas. Advancing Agriculture. Enabling Innovation.",
   description:
-    "Taginus Innovations is a multidisciplinary innovation company in Jath, Sangli, Maharashtra, working across agricultural inputs, agri-tech equipment, research and development, intellectual property services, artificial intelligence and digital technology.",
-  email: "taginusinnovation@gmail.com",
+    "Taginus Innovations is a multidisciplinary innovation company in Jath, Sangli, Maharashtra, working across agricultural inputs, agri-tech equipment, research and development, intellectual property services, artificial intelligence and fin tech.",
+  email: "team@taginusinnovations.in",
   linkedin: "https://www.linkedin.com/company/taginus-innovations",
   address: {
     street: "404/45 B, Shivanjali, Laxmi Garden, Bijapur Road, NH 166 E",

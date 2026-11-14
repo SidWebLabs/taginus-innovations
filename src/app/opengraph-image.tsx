@@ -13,7 +13,7 @@ export default function OgImage() {
           <div style={{ fontSize: 40, fontWeight: 700 }}>Taginus Innovations</div>
         </div>
         <div style={{ fontSize: 76, fontWeight: 800, lineHeight: 1.05, maxWidth: 980 }}>Engineering ideas. Advancing agriculture. Enabling innovation.</div>
-        <div style={{ fontSize: 30, color: "#f2a900" }}>Agri Input | Agri Tech | R&D | IPR | AI | Technology</div>
+        <div style={{ fontSize: 30, color: "#f2a900" }}>Agri Input | Agri Tech | R&D | IPR | AI | Fin Tech</div>
       </div>
     ),
     size,

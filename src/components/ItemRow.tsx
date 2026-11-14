@@ -9,6 +9,11 @@ export default function ItemRow({ vertical, item, index = 0 }: { vertical: strin
       </h3>
       <div>
         <p className="max-w-prose leading-relaxed text-ink/80">{item.summary}</p>
+        {item.url && (
+          <a href={item.url} target="_blank" rel="noopener noreferrer" className="link-u mt-3 inline-flex min-h-11 items-center gap-1 font-semibold text-leaf hover:text-field">
+            Visit {item.name} <span aria-hidden="true">&#8599;</span>
+          </a>
+        )}
         {item.meta && (
           <ul className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-field">
             {item.meta.map((m) => <li key={m} className="rounded-md bg-sage px-2.5 py-1 transition-colors group-hover:bg-white">{m}</li>)}

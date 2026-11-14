@@ -36,7 +36,7 @@ export default async function ItemPage({ params }: P) {
       ? { ...base, "@type": "Product", category: group.title, brand: { "@type": "Brand", name: site.name }, manufacturer: { "@id": ORG_ID } }
       : group.kind === "service"
         ? { ...base, "@type": "Service", serviceType: group.title, provider: { "@id": ORG_ID }, areaServed: { "@type": "Country", name: "India" } }
-        : { ...base, "@type": "SoftwareApplication", applicationCategory: "BusinessApplication", operatingSystem: "Web", provider: { "@id": ORG_ID }, featureList: it.features?.map((f) => f.title) };
+        : { ...base, "@type": "SoftwareApplication", applicationCategory: "BusinessApplication", operatingSystem: "Web", provider: { "@id": ORG_ID }, featureList: it.features?.map((f) => f.title), ...(it.url ? { sameAs: [it.url] } : {}) };
 
   return (
     <>
@@ -46,6 +46,11 @@ export default async function ItemPage({ params }: P) {
           <p className="mt-4 text-sm font-semibold text-leaf">{group.title}</p>
           <h1 className="mt-1 font-display text-4xl font-bold text-field text-balance sm:text-5xl">{it.name}</h1>
           <p data-speakable className="mt-4 max-w-prose text-lg leading-relaxed text-ink/80">{it.summary}</p>
+          {it.url && (
+            <a href={it.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center justify-center gap-1 rounded-lg bg-marigold px-5 py-2.5 font-semibold text-field transition duration-200 hover:-translate-y-0.5 hover:bg-[#ffc233] hover:shadow-md active:translate-y-0">
+              Visit {it.name} <span aria-hidden="true">&#8599;</span>
+            </a>
+          )}
           {it.meta && (
             <ul className="mt-5 flex flex-wrap gap-2 text-sm font-medium text-field">
               {it.meta.map((m) => <li key={m} className="rounded-md bg-white px-3 py-1.5">{m}</li>)}

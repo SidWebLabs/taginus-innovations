@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkedInLink from "@/components/LinkedInLink";
 import { site } from "@/data/site";
 import { verticals } from "@/data/verticals";
 
@@ -30,7 +31,7 @@ export default function Footer() {
             <li><Link href="/contact" className="inline-block transition duration-200 hover:translate-x-1 hover:text-marigold">Contact</Link></li>
             <li><Link href="/donate" className="inline-block transition duration-200 hover:translate-x-1 hover:text-marigold">Donate</Link></li>
             <li><a href={`mailto:${site.email}`} className="inline-block transition duration-200 hover:translate-x-1 hover:text-marigold">{site.email}</a></li>
-            <li><a href={site.linkedin} rel="noopener noreferrer" target="_blank" className="inline-block transition duration-200 hover:translate-x-1 hover:text-marigold">LinkedIn</a></li>
+            <li className="pt-2"><LinkedInLink href={site.linkedin} variant="dark" /></li>
           </ul>
         </nav>
       </div>

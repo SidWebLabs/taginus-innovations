@@ -1,6 +1,6 @@
 export type Faq = { q: string; a: string };
 export type Feature = { title: string; text: string };
-export type Item = { slug: string; name: string; seoTitle?: string; summary: string; meta?: string[]; features?: Feature[]; note?: string };
+export type Item = { slug: string; name: string; seoTitle?: string; url?: string; summary: string; meta?: string[]; features?: Feature[]; note?: string };
 export type Group = { title: string; kind: "product" | "service" | "software"; items: Item[] };
 export type Vertical = {
   slug: string;
@@ -199,6 +199,7 @@ export const verticals: Vertical[] = [
           {
             slug: "growgrapeai",
             name: "GrowGrapeAI",
+            url: "http://growgrape-ai.in/",
             summary: "An AI-powered viticulture and grape-farming platform giving growers crop-specific information, analysis and digital guidance for vineyard operations.",
             features: [
               { title: "Disease and pest identification", text: "AI-assisted image analysis for preliminary identification of visible grape disease and pest symptoms." },
@@ -231,9 +232,9 @@ export const verticals: Vertical[] = [
     ],
   },
   {
-    slug: "technology",
-    name: "Technology",
-    short: "Technology",
+    slug: "fin-tech",
+    name: "Fin Tech",
+    short: "Fin Tech",
     seoTitle: "QR Pay UPI QR Code Generator",
     tagline: "QR Pay, a UPI payment QR generator and manager.",
     intro:
@@ -248,6 +249,7 @@ export const verticals: Vertical[] = [
           {
             slug: "qr-pay",
             name: "QR Pay",
+            url: "https://dynamic-qr-pwa.netlify.app/",
             summary: "A UPI payment QR generator and manager for merchants, retailers, freelancers and small businesses. Generate QR codes with preset amounts and notes, then download or share them.",
             features: [
               { title: "Instant UPI payment QR generation", text: "Pick a saved UPI profile, enter an amount and optional note, and generate a scannable QR code." },
@@ -300,7 +302,7 @@ export const verticals: Vertical[] = [
     ],
     faqs: [
       { q: "What is Innography?", a: "Innography is an innovation and collaboration platform by Taginus Innovations for showcasing ideas, innovator profiles and inventions, and for connecting researchers, inventors and organisations." },
-      { q: "Can I submit an idea?", a: "Idea submission is part of the planned scope of Innography. For now, write to taginusinnovation@gmail.com." },
+      { q: "Can I submit an idea?", a: "Idea submission is part of the planned scope of Innography. For now, write to team@taginusinnovations.in." },
     ],
   },
 ];

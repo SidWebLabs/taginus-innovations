@@ -56,23 +56,16 @@ export default function Home() {
 
       <section data-reveal aria-labelledby="what-h" className="wrap mt-20">
         <h2 id="what-h" className="text-2xl font-bold text-field sm:text-3xl">What we do</h2>
-        <div className="mt-6 divide-y divide-field/15 border-y border-field/15">
+        <ul className="mt-6 grid border-t border-field/15 md:grid-cols-2 md:gap-x-12">
           {verticals.map((v, i) => (
-            <article key={v.slug} data-reveal style={d(Math.min(i, 3) * 60)} className="group grid gap-3 py-6 transition-[background-color,padding] duration-300 hover:bg-sage/70 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:gap-8 md:hover:px-4">
-              <div>
-                <h3 className="text-xl font-semibold text-field">
-                  <Link href={`/${v.slug}`} className="link-u hover:text-leaf">{v.name}</Link>
-                </h3>
-                <p className="mt-1 text-ink/75">{v.tagline}</p>
-              </div>
-              <ul className="flex flex-wrap content-start gap-x-4 gap-y-1.5 text-sm">
-                {v.groups.flatMap((g) => g.items).map((it) => (
-                  <li key={it.slug}><Link href={`/${v.slug}/${it.slug}`} className="link-u text-leaf hover:text-field">{it.name}</Link></li>
-                ))}
-              </ul>
-            </article>
+            <li key={v.slug} data-reveal style={d(Math.min(i, 3) * 60)} className="border-b border-field/15">
+              <Link href={`/${v.slug}`} className="group flex min-h-16 items-center justify-between gap-4 px-1 py-4 text-xl font-semibold text-field transition-[background-color,padding,color] duration-300 hover:bg-sage/70 hover:px-4 hover:text-leaf">
+                {v.name}
+                <span aria-hidden="true" className="text-leaf transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       <Journey />
