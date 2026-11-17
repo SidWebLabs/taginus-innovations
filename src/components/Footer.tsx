@@ -35,8 +35,11 @@ export default function Footer() {
           </ul>
         </nav>
       </div>
-      <div className="border-t border-white/15 py-5 text-center text-xs text-white/60">
+      <div className="border-t border-white/15 py-3 text-center text-xs text-white/60">
         © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+      </div>
+      <div className="py-3 -mt-2 text-center text-xs text-white/60">
+        Designed and Developed by <a href="https://www.linkedin.com/in/siddhesh-kulkarni-39a015266/" target="_blank" className="inline-block transition duration-200 hover:translate-x-1 hover:text-marigold">Siddhesh Kulkarni</a>
       </div>
     </footer>
   );
